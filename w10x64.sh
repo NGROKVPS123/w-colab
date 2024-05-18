@@ -7,8 +7,8 @@ echo "Download ngrok"
 echo "===================================="
 wget https://download1078.mediafire.com/hg36xq97v8lgh-c6qGkn4lDBtETpRYrVEb3K8xUvOzIYSE5rT3vGSMooNJB71gTX4lvB8lCVhbu54F722Ypebn-Z4D8whVz5TQ1HkCgnldq9hlMoJb1cpbQ3vZqxbQ4AhgQeyhBcPdpigN3XhKFNOrLz2MIXe6oPTna2Hhx8pqnmOQE/8k2xje6qqzhlran/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-v3-stable-linux-amd64.zip &>/dev/null &
-read -p "Ctrl + V Authtoken: " CRP 
-./ngrok authtoken $CRP 
+read -p "Paste Authtoken her[if you edit]: "2e2RaW4cZ5FSf1NPEee1qSBrqr7_6fyLW3fisrJ3HztrrptTN
+./ngrok authtoken 2e2RaW4cZ5FSf1NPEee1qSBrqr7_6fyLW3fisrJ3HztrrptTN
 nohup ./ngrok tcp 3389 &>/dev/null &
 ./ngrok tcp 3389 &>/dev/null &
 echo "===================================="
