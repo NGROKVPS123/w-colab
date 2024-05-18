@@ -5,33 +5,22 @@ curl -L -o w10x64.img https://bit.ly/akuhnetW10x64
 echo "===================================="
 echo "Download ngrok"
 echo "===================================="
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-unzip ngrok-stable-linux-amd64.zip &>/dev/null &
-unzip ngrok-stable-linux-amd64.zip1 &>/dev/null &
+wget https://download1078.mediafire.com/hg36xq97v8lgh-c6qGkn4lDBtETpRYrVEb3K8xUvOzIYSE5rT3vGSMooNJB71gTX4lvB8lCVhbu54F722Ypebn-Z4D8whVz5TQ1HkCgnldq9hlMoJb1cpbQ3vZqxbQ4AhgQeyhBcPdpigN3XhKFNOrLz2MIXe6oPTna2Hhx8pqnmOQE/8k2xje6qqzhlran/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
+unzip ngrok-v3-stable-linux-amd64.zip &>/dev/null &
 read -p "Ctrl + V Authtoken: " CRP 
 ./ngrok authtoken $CRP 
 nohup ./ngrok tcp 3389 &>/dev/null &
 ./ngrok tcp 3389 &>/dev/null &
 echo "===================================="
-echo Downloading File From akuh.net
+echo Install QEMU
 echo "===================================="
-apt-get install qemu > /dev/null 2>&1
+apt-get install qemu-kvm
 echo "===================================="
 echo "Wait"
 echo "Starting Windows"
 echo "===================================="
 echo "===================================="
-echo RDP Address:
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-echo "===================================="
-echo "===================================="
-echo "Ctrl+C To Copy"
-echo "Wait 1-2 minute to finish bot"
-echo "Dont Close This Tab"
-echo "===================================="
-echo "===================================="
-echo "Username: akuh"
-echo "Password: Akuh.Net"
-echo "===================================="
+echo You will wait 10 second after VM has start
 qemu-system-x86_64 -hda w10x64.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic  > /dev/null 2>&1
-sleep 43200
+sleep 10
+./ngrok tcp 3389
