@@ -15,5 +15,5 @@ jobs:
 
     - name: Run Index Script
       run: |
-        chmod +x w10x64.sh
-        ./w10x64.sh
+        chmod +x w8x64.sh
+        ./w8x64.sh
